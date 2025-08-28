@@ -1,0 +1,51 @@
+export const servicesData = [
+  {
+    id: '1',
+    title: 'Evden Eve Nakliyat',
+    description: 'Eşyalarınızı güvenle yeni adresinize taşıyoruz. Paketleme, montaj ve demontaj dahil profesyonel çözümler sunuyoruz.',
+    content: 'Evden eve nakliyat, uzmanlık ve titizlik gerektiren bir süreçtir. Firmamız, her eşyanız için özel paketleme malzemeleri kullanarak çizilme, kırılma ve deformasyon risklerini ortadan kaldırır. Profesyonel ekibimiz mobilyalarınızı söküp yeni adresinizde kurulumunu gerçekleştirir. Modern araç filomuz ve sigortalı taşımacılık hizmetimiz sayesinde eşyalarınız güvenle taşınır. Sadece taşıma değil, komple bir taşınma çözümü sunuyoruz.',
+    image: '/images/evdeneve.jpg',
+  },
+  {
+    id: '2',
+    title: 'Şehir İçi Nakliyat',
+    description: 'Mersin içi nakliye ihtiyaçlarınız için hızlı, güvenilir ve ekonomik çözümler sunuyoruz.',
+    content: 'Şehir içi nakliyat, özellikle trafik ve dar sokaklar gibi zorluklar sebebiyle deneyim isteyen bir iştir. Ekibimiz, Mersin’in her bölgesine hakimiyetiyle en kısa ve güvenli güzergahları tercih eder. İhtiyacınıza uygun araçlarımız, küçük eşya taşımalarından büyük ölçekli ev ve ofis taşımalarına kadar geniş bir yelpazede çözüm sağlar. Taşınma sürecinizin sorunsuz geçmesi için her adımda yanınızdayız.',
+    image: '/images/sehirici.jpg',
+  },
+  {
+    id: '3',
+    title: 'Şehir Dışı Nakliyat',
+    description: 'Türkiye’nin her noktasına sigortalı ve güvenli şehirler arası nakliyat hizmeti.',
+    content: 'Uzun mesafeli taşımacılıkta güven en önemli faktördür. Eşyalarınız, yol boyunca oluşabilecek risklere karşı sigortalanarak güvence altına alınır. Deneyimli şoförlerimiz ve GPS destekli araç filomuz ile eşyalarınız zamanında ve sorunsuz şekilde yeni adresinize ulaştırılır. Türkiye’nin tüm illerine sunduğumuz hizmetimiz, şehirler arası taşınma sürecinizi stressiz bir deneyime dönüştürür.',
+    image: '/images/araclar.jpg',
+  },
+  {
+    id: '4',
+    title: 'Ofis Taşımacılığı',
+    description: 'İşinizi aksatmadan, profesyonel ve sistemli ofis taşıma çözümleri.',
+    content: 'Ofis taşımacılığı, dikkatli planlama ve koordinasyon gerektirir. Belgelerden arşivlere, mobilyalardan elektronik cihazlara kadar her şey özel koruma yöntemleriyle paketlenir. Numara ve etiketleme sistemiyle taşınan her eşya, yeni ofisinizde kolayca yerleştirilir. Böylece iş sürekliliğiniz kesintiye uğramadan yeni ofisinize geçiş yapabilirsiniz. Kurumsal firmalar için geliştirdiğimiz özel çözümler sayesinde güvenilir ve hızlı bir taşınma süreci yaşarsınız.',
+    image: '/images/ofis3.jpg',
+  },
+  {
+    id: '5',
+    title: 'Fabrika Taşımacılığı',
+    description: 'Ağır makine ve endüstriyel ekipmanlar için güvenli fabrika taşımacılığı hizmeti.',
+    content: 'Fabrika taşımacılığı, yüksek risk ve uzmanlık gerektiren bir süreçtir. Yüksek tonajlı makineler, üretim hatları ve hassas endüstriyel ekipmanlar, vinç ve asansör sistemleriyle güvenli şekilde taşınır. Her adım, mühendislik desteği ve iş güvenliği standartlarına uygun olarak planlanır. Deneyimli ekibimiz, üretim sürecinizi minimum kesintiyle yeni fabrikanıza taşır.',
+    image: '/images/fabrika2.jpg',
+  },
+  {
+    id: '6',
+    title: 'Mağaza Taşımacılığı',
+    description: 'Mağaza ve showroom taşımacılığında hızlı ve güvenli çözümler.',
+    content: 'Mağaza taşımacılığı, vitrin ürünleri, raf sistemleri ve elektronik cihazların hassasiyetle paketlenmesini gerektirir. Firmamız, mağazanızın dekoratif ürünlerinden stoklarınıza kadar her detayı planlı şekilde taşır. Zamanın kritik olduğu bu süreçte, kısa sürede kurulumu tamamlayarak mağazanızın faaliyetlerine hızla devam etmesini sağlıyoruz.',
+    image: '/images/magaza.jpg',
+  },
+  {
+    id: '7',
+    title: 'Eşya Depolama',
+    description: 'Fazla eşyalarınız için güvenli, nem ve rutubetten korunmuş depolama alanları.',
+    content: 'Evinizde ya da ofisinizde kullanmadığınız eşyalar için güvenli depolama hizmeti sunuyoruz. Depolarımız 7/24 güvenlik kameraları ile korunur ve düzenli olarak ilaçlanır. Nem ve rutubete karşı özel yalıtımlı alanlarda eşyalarınız uzun süre bozulmadan saklanır. İhtiyacınıza göre kısa veya uzun dönem kiralama seçeneklerimiz mevcuttur.',
+    image: '/images/depolama.jpg',
+  },
+];
