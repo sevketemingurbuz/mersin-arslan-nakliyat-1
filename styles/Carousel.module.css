@@ -1,0 +1,27 @@
+.carouselCaption {
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.068);
+  border-radius: 20px;
+}
+
+.navbar-collapse.collapse {
+  transition: height 0.2s ease !important;
+}
+
+@media (max-width: 768px) {
+  .carouselCaption {
+    top: 55% !important; /* mobilde de aşağı kaydır */
+    transform: translate(0, -50%) !important;
+    max-width: 90%;
+    padding: 0.5rem;
+  }
+
+  .carouselCaption h1 {
+    font-size: 1.5rem;
+  }
+
+  .carouselCaption p {
+    font-size: 0.9rem;
+  }
+}
