@@ -4,6 +4,7 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.min.css"
 import MyNavbar from "@/components/MyNavbar";
 import Footer from "@/components/Footer"
+import Ping from "@/components/ping";
 
 
 const inter = Inter({subsets: ['latin']});
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body className={inter.className}>
+        <Ping/>
           <div className="d-flex flex-column min-vh-100">
                 <MyNavbar />
                 <main className="flex-grow-1">{children}</main>
