@@ -25,9 +25,9 @@ const ContactForm = () => {
 
     try {
  
-      const endpointUrl = 'http://localhost:8080/mail/send'; 
+      const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
       
-      const response = await fetch(endpointUrl, {
+      const response = await fetch(`${apiUrl}/mail/send`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
