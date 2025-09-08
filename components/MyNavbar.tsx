@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Navbar, Container, Nav, Button, NavDropdown } from "react-bootstrap";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/Navbar.module.css";
+import Image from "next/image";
 
 const MyNavbar = () => {
   const pathname = usePathname();
@@ -15,20 +16,36 @@ const MyNavbar = () => {
       variant="dark"
       expand="lg"
       sticky="top"
-      className="shdow-sm"
-      style={{ minHeight: "80px" }}
+      className="shdow-lg"
+      style={{ minHeight: "100px" }}
     >
       <Container>
         <Navbar.Brand as={Link} href="/">
-          Arslan Nakliye
+          <Image
+            src="/logo/artBoard1.png"
+            alt="Logo"
+            width={120}
+            height={110}
+            style={{ objectFit: "contain" }}
+            priority
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} href="/" active={pathname === "/"}>
+          <Nav className="mx-auto">
+            <Nav.Link
+              as={Link}
+              href="/"
+              active={pathname === "/"}
+              className="px-3 fs-5"
+            >
               Anasayfa
             </Nav.Link>
-            <NavDropdown title="Hizmetlerimiz" id="hizmetler-dropdown">
+            <NavDropdown
+              title="Hizmetlerimiz"
+              id="hizmetler-dropdown"
+              className="px-3 fs-5"
+            >
               <NavDropdown.Item
                 as={Link}
                 href="/our-services/1"
@@ -79,13 +96,19 @@ const MyNavbar = () => {
                 Eşya Depolama
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} href="/about" active={pathname === "/about"}>
+            <Nav.Link
+              as={Link}
+              href="/about"
+              active={pathname === "/about"}
+              className="px-3 fs-5"
+            >
               Hakkımızda
             </Nav.Link>
             <Nav.Link
               as={Link}
               href="/contact"
               active={pathname === "/contact"}
+              className="px-3 fs-5"
             >
               İletişim
             </Nav.Link>

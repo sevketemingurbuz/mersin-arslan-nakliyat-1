@@ -4,10 +4,10 @@ import { useEffect } from "react";
 
 export default function Ping() {
   useEffect(() => {
-    fetch("https://nakliye.onrender.com/healthz").catch(err =>
+    fetch("https://nakliye.onrender.com/healthz").catch((err) =>
       console.log("healthz ping hatası:", err)
     );
   }, []);
 
-  return null; // ekranda hiçbir şey göstermiyoruz
+  return null; // don’t display anything on the screen
 }
