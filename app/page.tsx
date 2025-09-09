@@ -193,7 +193,7 @@ const HomePage = () => {
             <Col md={4} className="mt-4 mt-md-0">
               <div className="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm bg-white position-relative">
                 <Image
-                  src="/images/mock1.jpg"
+                  src="/images/mock3.jpg"
                   alt="Hakkımızda"
                   fill
                   className="img-fluid rounded shadow object-fit-cover"
