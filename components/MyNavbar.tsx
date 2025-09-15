@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Navbar, Container, Nav, Button, NavDropdown } from "react-bootstrap";
 import { usePathname } from "next/navigation";
@@ -9,6 +9,19 @@ import Image from "next/image";
 
 const MyNavbar = () => {
   const pathname = usePathname();
+
+  const handleLinkClick = () => {
+    const navbarCollapse = document.getElementById("basic-navbar-nav");
+    if (navbarCollapse) {
+      // Bootstrap'in menü kapatma işlevini tetikle
+      if (navbarCollapse.classList.contains("show")) {
+        const toggleButton = document.querySelector('.navbar-toggler') as HTMLElement;
+        if (toggleButton) {
+          toggleButton.click();
+        }
+      }
+    }
+  };
 
   return (
     <Navbar
@@ -38,6 +51,7 @@ const MyNavbar = () => {
               href="/"
               active={pathname === "/"}
               className="px-3 fs-5"
+              onClick={handleLinkClick}
             >
               Anasayfa
             </Nav.Link>
@@ -50,6 +64,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/1"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Evden Eve Nakliyat
               </NavDropdown.Item>
@@ -57,6 +72,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/2"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Şehir İçi Nakliyat
               </NavDropdown.Item>
@@ -64,6 +80,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/3"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Şehir Dışı Nakliyat
               </NavDropdown.Item>
@@ -71,6 +88,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/4"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Ofis Taşımacılığı
               </NavDropdown.Item>
@@ -78,6 +96,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/5"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Fabrika Taşımacılığı
               </NavDropdown.Item>
@@ -85,6 +104,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/6"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Mağaza Taşımacılığı
               </NavDropdown.Item>
@@ -92,6 +112,7 @@ const MyNavbar = () => {
                 as={Link}
                 href="/our-services/7"
                 className={styles.dropdownItem}
+                onClick={handleLinkClick}
               >
                 Eşya Depolama
               </NavDropdown.Item>
@@ -101,6 +122,7 @@ const MyNavbar = () => {
               href="/about"
               active={pathname === "/about"}
               className="px-3 fs-5"
+              onClick={handleLinkClick}
             >
               Hakkımızda
             </Nav.Link>
@@ -109,6 +131,7 @@ const MyNavbar = () => {
               href="/contact"
               active={pathname === "/contact"}
               className="px-3 fs-5"
+              onClick={handleLinkClick}
             >
               İletişim
             </Nav.Link>
@@ -118,6 +141,7 @@ const MyNavbar = () => {
             href="https://wa.me/905362002944"
             target="_blank"
             className="ms-3"
+            onClick={handleLinkClick}
           >
             Whatsapp İletişim
           </Button>

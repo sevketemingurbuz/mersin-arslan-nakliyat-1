@@ -11,6 +11,7 @@ import {
   Button,
   CarouselItem,
   CarouselCaption,
+  Badge,
 } from "react-bootstrap";
 import { FaBoxes, FaTruck, FaShieldAlt } from "react-icons/fa";
 import Link from "next/link";
@@ -155,79 +156,141 @@ const HomePage = () => {
         </CarouselItem>
       </Carousel>
 
-      <Container className="my-5">
-        <h2 className="text-center mb-5">Öne Çıkan Hizmetlerimiz</h2>
-        <Row className="g-4">
-          {featuredServices.map((service) => (
-            <Col md={4} key={service.id}>
-              <Card className="text-center p-3 h-100 shadow-sm">
-                <CardBody>
-                  {service.icon}
-                  <CardTitle className="fw-bold">{service.title}</CardTitle>
-                  <CardText>{service.description}</CardText>
-                  <Link href={`/our-services/${service.id}`} passHref>
-                    <Button variant="primary">Detaylı Bilgi</Button>
+      <div className="bg-light py-5">
+        <Container>
+          <div className="text-center mb-5">
+            <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">Hizmetlerimiz</Badge>
+            <h1 className="display-4 fw-bold text-dark mb-4">Öne Çıkan Hizmetlerimiz</h1>
+            <p className="lead text-muted mx-auto" style={{maxWidth: '600px'}}>
+              Profesyonel nakliye hizmetlerimizle ihtiyaçlarınıza en uygun çözümleri sunuyoruz.
+            </p>
+          </div>
+          <Row className="g-4">
+            {featuredServices.map((service) => (
+              <Col md={4} key={service.id}>
+                <Card className="border-0 shadow-sm h-100 text-center">
+                  <CardBody className="p-4">
+                    <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '80px', height: '80px'}}>
+                      {service.icon}
+                    </div>
+                    <CardTitle className="fw-bold text-dark mb-3 fs-5">{service.title}</CardTitle>
+                    <CardText className="text-muted mb-4">{service.description}</CardText>
+                    <Link href={`/our-services/${service.id}`} passHref>
+                      <Button variant="primary" className="px-4 py-2 rounded-pill">
+                        <i className="fas fa-arrow-right me-2"></i>
+                        Detaylı Bilgi
+                      </Button>
+                    </Link>
+                  </CardBody>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
+
+      <div className="py-5">
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6} className="mb-4 mb-lg-0">
+              <Card className="border-0 shadow-sm h-100">
+                <CardBody className="p-4">
+                  <h3 className="fw-bold text-primary mb-4">Güvenilir ve Kaliteli Hizmet</h3>
+                  <p className="fs-5 text-muted mb-4">
+                    2005 yılından beri nakliye sektöründe hizmet veriyoruz. Müşteri
+                    memnuniyetini ön planda tutan yaklaşımımızla, eşyalarınızı en
+                    güvenli şekilde taşıyoruz. Her aşamada yanınızda olarak, taşınma
+                    sürecinizi stressiz ve kolay hale getiriyoruz.
+                  </p>
+                  <Link href="/about" passHref>
+                    <Button variant="primary" className="px-4 py-2 rounded-pill">
+                      <i className="fas fa-arrow-right me-2"></i>
+                      Daha Fazla Oku
+                    </Button>
                   </Link>
                 </CardBody>
               </Card>
             </Col>
-          ))}
-        </Row>
-      </Container>
-
-      <div className="bg-light py-5">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={8}>
-              <h2 className="fw-bold mb-3">Güvenilir ve Kaliteli Hizmet</h2>
-              <p>
-                2005 yılından beri nakliye sektöründe hizmet veriyoruz. Müşteri
-                memnuniyetini ön planda tutan yaklaşımımızla, eşyalarınızı en
-                güvenli şekilde taşıyoruz. Her aşamada yanınızda olarak, taşınma
-                sürecinizi stressiz ve kolay hale getiriyoruz.
-              </p>
-              <Link href="/about" passHref>
-                <Button variant="outline-primary">Daha Fazla Oku</Button>
-              </Link>
-            </Col>
-            <Col md={4} className="mt-4 mt-md-0">
-              <div className="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm bg-white position-relative">
+            <Col lg={6}>
+              <div className="position-relative">
                 <Image
-                  src="/images/mock3.jpg"
+                  src="/images/mock7.jpg"
                   alt="Hakkımızda"
-                  fill
-                  className="img-fluid rounded shadow object-fit-cover"
+                  width={600}
+                  height={400}
+                  className="img-fluid rounded-3 shadow-lg"
+                  style={{objectFit: 'cover'}}
                 />
+                
               </div>
             </Col>
           </Row>
         </Container>
       </div>
 
-      <div className="py-5 bg-primary text-white text-center">
+      <div className="bg-primary py-5">
         <Container>
-          <h2 className="mb-4">Müşteri Yorumlarımız</h2>
-          <Carousel controls={false} indicators={false}>
-            {testimonials.map((test, index) => (
-              <CarouselItem key={index} interval={5000}>
-                <p className="lead fst-italic">{test.quote}</p>
-                <p>- {test.author}</p>
-              </CarouselItem>
-            ))}
-          </Carousel>
+          <div className="text-center mb-5">
+            <Badge bg="light" text="primary" className="mb-3 fs-6 px-3 py-2">Müşteri Yorumları</Badge>
+            <h2 className="text-white mb-4 fw-bold">Müşterilerimiz Ne Diyor?</h2>
+            <p className="text-white-50 lead mx-auto" style={{maxWidth: '600px'}}>
+              Memnuniyetimiz, müşterilerimizin başarısıyla ölçülür. İşte bizimle çalışan müşterilerimizin deneyimleri.
+            </p>
+          </div>
+          <Row className="justify-content-center">
+            <Col md={8} lg={6}>
+              <Carousel controls={false} indicators={false}>
+                {testimonials.map((test, index) => (
+                  <CarouselItem key={index} interval={5000}>
+                    <Card className="border-0 bg-white bg-opacity-10 backdrop-blur">
+                      <CardBody className="p-4 text-center">
+                        <div className="mb-3">
+                          <i className="fas fa-quote-left text-white-50 fs-1"></i>
+                        </div>
+                        <p className="lead text-white fst-italic mb-4">{test.quote}</p>
+                        <div className="d-flex align-items-center justify-content-center">
+                          <div className="bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px'}}>
+                            <i className="fas fa-user text-white"></i>
+                          </div>
+                          <div>
+                            <h6 className="text-white mb-0 fw-bold">{test.author}</h6>
+                            <small className="text-white-50">Müşterimiz</small>
+                          </div>
+                        </div>
+                      </CardBody>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </Carousel>
+            </Col>
+          </Row>
         </Container>
       </div>
 
-      <div className="py-5">
+      <div className="bg-light py-5">
         <Container>
+          <div className="text-center mb-5">
+            <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">İletişim</Badge>
+            <h1 className="display-4 fw-bold text-dark mb-4">Bir Projeniz mi Var?</h1>
+            <p className="lead text-muted mx-auto" style={{maxWidth: '600px'}}>
+              Nakliye ihtiyaçlarınız için bize ulaşın, size özel çözümler sunalım.
+              Ücretsiz keşif ve teklif için hemen iletişime geçin.
+            </p>
+          </div>
           <Row className="justify-content-center">
             <Col md={8} lg={6}>
-              <h2 className="text-center mb-4">Bir Projeniz mi Var?</h2>
-              <p className="text-center mb-4">
-                Nakliye ihtiyaçlarınız için bize ulaşın, size özel çözümler
-                sunalım.
-              </p>
-              <ContactForm />
+              <Card className="border-0 shadow-sm">
+                <CardBody className="p-4">
+                  <div className="text-center mb-4">
+                    <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '70px', height: '70px'}}>
+                      <i className="fas fa-paper-plane text-primary fs-2"></i>
+                    </div>
+                    <h4 className="fw-bold text-primary mb-3">Teklif Alın</h4>
+                    <p className="text-muted">Formu doldurun, size en kısa sürede dönüş yapalım.</p>
+                  </div>
+                  <ContactForm />
+                </CardBody>
+              </Card>
             </Col>
           </Row>
         </Container>
