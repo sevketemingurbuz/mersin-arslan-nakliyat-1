@@ -11,7 +11,6 @@ const ContactPage = () => {
   return (
     <div className="bg-light py-5">
       <Container>
-        {/* Hero Section */}
         <div className="text-center mb-5">
           <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">İletişim</Badge>
           <h1 className="display-4 fw-bold text-dark mb-4">Bizimle İletişime Geçin</h1>
@@ -21,7 +20,6 @@ const ContactPage = () => {
         </div>
 
         <Row className="g-4">
-          {/* Contact Info Card */}
           <Col lg={6} className="mb-4 mb-lg-0">
             <Card className="border-0 shadow-sm h-100">
               <CardBody className="p-4">
@@ -71,8 +69,6 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Map */}
                 <div className="mt-4">
                   <h6 className="fw-bold mb-3">
                     <i className="fas fa-map me-2"></i>
@@ -92,8 +88,6 @@ const ContactPage = () => {
               </CardBody>
             </Card>
           </Col>
-
-          {/* Contact Form */}
           <Col lg={6}>
             <Card className="border-0 shadow-sm h-100">
               <CardBody className="p-4">
@@ -106,8 +100,6 @@ const ContactPage = () => {
             </Card>
           </Col>
         </Row>
-
-        {/* Working Hours */}
         <Row className="mt-5">
           <Col md={8} className="mx-auto">
             <Card className="border-0 shadow-sm">

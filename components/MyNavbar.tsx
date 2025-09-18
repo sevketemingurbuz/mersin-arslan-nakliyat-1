@@ -13,7 +13,7 @@ const MyNavbar = () => {
   const handleLinkClick = () => {
     const navbarCollapse = document.getElementById("basic-navbar-nav");
     if (navbarCollapse) {
-      // Bootstrap'in menü kapatma işlevini tetikle
+      // close dropdown
       if (navbarCollapse.classList.contains("show")) {
         const toggleButton = document.querySelector('.navbar-toggler') as HTMLElement;
         if (toggleButton) {

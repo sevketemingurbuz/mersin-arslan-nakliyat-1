@@ -12,7 +12,6 @@ const ServicesPage = () => {
   return (
     <div className="bg-light py-5">
       <Container>
-        {/* Hero Section */}
         <div className="text-center mb-5">
           <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">Hizmetlerimiz</Badge>
           <h1 className="display-4 fw-bold text-dark mb-4">Profesyonel Nakliye Hizmetleri</h1>
@@ -21,8 +20,6 @@ const ServicesPage = () => {
             Aşağıda tüm nakliye ve depolama hizmetlerimizi inceleyebilirsiniz.
           </p>
         </div>
-
-        {/* Services Grid */}
         <Row className="g-4">
           {servicesData.map((service, index) => (
             <Col md={6} lg={4} key={service.id}>
@@ -51,8 +48,6 @@ const ServicesPage = () => {
             </Col>
           ))}
         </Row>
-
-        {/* Why Choose Us Section */}
         <Row className="mt-5 pt-5">
           <Col md={12} className="text-center mb-5">
             <h2 className="fw-bold text-dark mb-4">Neden Bizi Tercih Etmelisiniz?</h2>

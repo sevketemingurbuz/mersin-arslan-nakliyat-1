@@ -11,7 +11,7 @@
 
 @media (max-width: 768px) {
   .carouselCaption {
-    top: 55% !important; /* mobilde de aşağı kaydır */
+    top: 55% !important; 
     transform: translate(0, -50%) !important;
     max-width: 90%;
     padding: 0.5rem;

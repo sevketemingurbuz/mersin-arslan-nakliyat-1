@@ -9,5 +9,5 @@ export default function Ping() {
     );
   }, []);
 
-  return null; // don’t display anything on the screen
+  return null; 
 }
