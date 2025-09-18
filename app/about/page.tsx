@@ -9,7 +9,6 @@ const AboutPage = () => {
   return (
     <div className="bg-light py-5">
       <Container>
-        {/* Hero Section */}
         <div className="text-center mb-5">
           <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">Hakkımızda</Badge>
           <h1 className="display-4 fw-bold text-dark mb-4">Güvenilir Nakliye Ortağınız</h1>
@@ -17,8 +16,6 @@ const AboutPage = () => {
             2005 yılından beri müşteri memnuniyetini ön planda tutarak, profesyonel nakliye hizmetleri sunuyoruz.
           </p>
         </div>
-
-        {/* Main Content */}
         <Row className="align-items-center mb-5">
           <Col lg={6} className="mb-4 mb-lg-0">
             <Card className="border-0 shadow-sm h-100">
@@ -26,7 +23,7 @@ const AboutPage = () => {
                 <h3 className="fw-bold text-primary mb-4">Hikayemiz</h3>
                 <p className="fs-5 text-muted mb-4">
                   2005 yılında küçük bir aile şirketi olarak çıktığımız bu yolda, bugün
-                  Türkiye'nin dört bir yanına hizmet veren, sektörün lider firmalarından biri haline geldik.
+                  Türkiye&#39;nin dört bir yanına hizmet veren, sektörün lider firmalarından biri haline geldik.
                   Müşteri memnuniyetini her zaman en ön planda tutarak, profesyonel ve güvenilir nakliye
                   hizmetleri sunmayı misyon edindik.
                 </p>
@@ -53,8 +50,6 @@ const AboutPage = () => {
             </div>
           </Col>
         </Row>
-
-        {/* Mission & Vision */}
         <Row className="g-4">
           <Col md={6}>
             <Card className="border-0 shadow-sm h-100 text-center">
@@ -77,15 +72,13 @@ const AboutPage = () => {
                 </div>
                 <h4 className="fw-bold text-dark mb-3">Vizyonumuz</h4>
                 <p className="text-muted fs-5">
-                  Sektördeki yenilikleri takip ederek, teknoloji ve insan odaklı çözümlerle Türkiye'nin en
+                  Sektördeki yenilikleri takip ederek, teknoloji ve insan odaklı çözümlerle Türkiye&#39;nin en
                   tercih edilen nakliye firması olmak.
                 </p>
               </CardBody>
             </Card>
           </Col>
         </Row>
-
-        {/* Stats Section */}
         <Row className="mt-5 pt-5">
           <Col md={3} className="text-center mb-4">
             <div className="bg-primary text-white rounded-3 p-4">

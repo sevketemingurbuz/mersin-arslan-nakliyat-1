@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, CardBody, Badge, Button } from 'react-bootst
 import { servicesData } from '@/app/data/services'; 
 import ContactForm from '@/components/ContactForm'; 
 import Link from 'next/link';
+// import Image from 'next/image'
 
 interface ServicePageProps {
   params: {
@@ -36,7 +37,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
   return (
     <div className="bg-light py-5">
       <Container>
-        {/* Hero Section */}
         <div className="text-center mb-5">
           <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">Hizmet Detayı</Badge>
           <h1 className="display-4 fw-bold text-dark mb-4">{service.title}</h1>
@@ -46,7 +46,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
         </div>
 
         <Row className="g-4">
-          {/* Sol taraf: resim ve içerik */}
           <Col lg={7} className="mb-4 mb-lg-0">
             <Card className="border-0 shadow-sm h-100">
               <CardBody className="p-4">
@@ -68,8 +67,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
               </CardBody>
             </Card>
           </Col>
-
-          {/* Sağ taraf: detay kartı ve iletişim */}
           <Col lg={5}>
             <Card className="border-0 shadow-sm h-100">
               <CardBody className="p-4">
@@ -132,8 +129,6 @@ const ServicePage = ({ params }: ServicePageProps) => {
             </Card>
           </Col>
         </Row>
-
-        {/* Related Services */}
         <Row className="mt-5 pt-5">
           <Col md={12} className="text-center mb-4">
             <h3 className="fw-bold text-dark">Diğer Hizmetlerimiz</h3>
