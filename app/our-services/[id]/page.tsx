@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
   }
 
   return {
-    title: `${service.title} | Nakliye Firması`,
+    title: `${service.title} | Mersin Arslan Nakliyat`,
     description: service.description,
   };
 }
@@ -113,7 +113,7 @@ const ServicePage = ({ params }: ServicePageProps) => {
                       Tüm Hizmetler
                     </Button>
                   </Link>
-                  <Button variant="success" href="https://wa.me/905384942382" target="_blank">
+                  <Button variant="success" href="https://wa.me/905385147597" target="_blank">
                     <FaWhatsapp className="me-2" />
                     WhatsApp
                   </Button>

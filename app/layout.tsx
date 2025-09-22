@@ -9,8 +9,14 @@ import Ping from "@/components/Ping";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Arslan Nakliye",
+  title: "Mersin Arslan Nakliyat",
   description: "Profesyonel ve Hızlı Ulaşım Çözümleri",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  themeColor: "#0d6efd",
 };
 
 export default function RootLayout({

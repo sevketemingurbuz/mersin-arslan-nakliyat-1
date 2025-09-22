@@ -5,7 +5,7 @@ import {FaBriefcase,FaShieldAlt, FaClock, FaDollarSign, FaHeadset, FaTruck, FaHo
 
 import { FaStore } from 'react-icons/fa6';
 export const metadata = {
-  title: 'Tüm Hizmetlerimiz | Nakliye Firması',
+  title: 'Tüm Hizmetlerimiz | Mersin Arslan Nakliyat',
   description: 'Nakliye firmamızın sunduğu tüm profesyonel hizmetler: evden eve nakliyat, ofis taşımacılığı, eşya depolama ve daha fazlası.',
 };
 

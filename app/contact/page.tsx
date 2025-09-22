@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, CardBody, CardTitle, Badge } from 'react-boo
 import ContactForm from '@/components/ContactForm';
 import {FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaMap, FaPaperPlane } from 'react-icons/fa';
 export const metadata = {
-  title: 'İletişim | Nakliye Firması',
+  title: 'İletişim | Mersin Arslan Nakliyat',
   description: 'Bize ulaşın. Adres, telefon, e-posta bilgileri ve iletişim formu.',
 };
 
@@ -35,7 +35,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Adres</h6>
-                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_ADDRESS}</p>
+                      <p className="text-muted mb-0">Mevlana Mahallesi 101038 Sokak No:13/4 <br /> <b>Toroslar/Mersin</b></p>
                     </div>
                   </div>
                   
@@ -45,7 +45,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Telefon</h6>
-                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_PHONE_NUMBER}</p>
+                      <p className="text-muted mb-0">+90 538 514 75 97</p>
                     </div>
                   </div>
                   
@@ -55,7 +55,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">E-posta</h6>
-                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_EMAIL}</p>
+                      <p className="text-muted mb-0">arslanakliyatevdeneve@gmail.com</p>
                     </div>
                   </div>
                   
@@ -65,7 +65,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">WhatsApp</h6>
-                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_PHONE_NUMBER}</p>
+                      <p className="text-muted mb-0">+90 538 514 75 97</p>
                     </div>
                   </div>
                 </div>

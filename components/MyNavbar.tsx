@@ -138,7 +138,7 @@ const MyNavbar = () => {
           </Nav>
           <Button
             variant="success"
-            href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ''}`}
+            href="https://wa.me/905385147597"
             target="_blank"
             className="ms-3"
             onClick={handleLinkClick}

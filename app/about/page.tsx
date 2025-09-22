@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col, Image, Card, CardBody, Badge } from 'react-bootstrap';
 import { FaBuilding, FaCrosshairs } from 'react-icons/fa';
 export const metadata = {
-  title: "Hakkımızda | Nakliye Firması",
+  title: "Hakkımızda | Mersin Arslan Nakliyat",
   description: "Nakliye firmamızın hikayesi, misyonu ve vizyonu hakkında bilgi edinin.",
 };
 

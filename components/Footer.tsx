@@ -49,9 +49,9 @@ const Footer = () => {
           <Col md={4} className="text-center text-md-start">
             <h5 className="mb-3">İletişim</h5>
             <address>
-              <strong>Adres:</strong> {process.env.NEXT_PUBLIC_ADDRESS || ''}<br />
-              <strong>Telefon:</strong> {process.env.NEXT_PUBLIC_PHONE_NUMBER || ''} <br />
-              <strong>E-posta:</strong> {process.env.NEXT_PUBLIC_EMAIL || ''}
+              <strong>Adres:</strong> Mevlana Mahallesi 101038 Sokak No:13/4 <b>Toroslar/Mersin</b><br />
+              <strong>Telefon:</strong> +90 538 514 75 97 <br />
+              <strong>E-posta:</strong> arslanakliyatevdeneve@gmail.com
             </address>
           </Col>
         </Row>
