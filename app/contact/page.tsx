@@ -35,7 +35,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Adres</h6>
-                      <p className="text-muted mb-0">Mevlana Mahallesi 101038 Sokak No:13/4 <br /> <b>Toroslar/Mersin</b></p>
+                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_ADDRESS}</p>
                     </div>
                   </div>
                   
@@ -45,7 +45,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Telefon</h6>
-                      <p className="text-muted mb-0">+90 538 514 75 97</p>
+                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_PHONE_NUMBER}</p>
                     </div>
                   </div>
                   
@@ -55,7 +55,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">E-posta</h6>
-                      <p className="text-muted mb-0">arslanakliyatevdeneve@gmail.com</p>
+                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_EMAIL}</p>
                     </div>
                   </div>
                   
@@ -65,7 +65,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">WhatsApp</h6>
-                      <p className="text-muted mb-0">+90 538 514 75 97</p>
+                      <p className="text-muted mb-0">{process.env.NEXT_PUBLIC_PHONE_NUMBER}</p>
                     </div>
                   </div>
                 </div>

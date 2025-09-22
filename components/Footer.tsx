@@ -20,17 +20,17 @@ const Footer = () => {
               nakliye hizmetlerimizle daima yanınızdayız.
             </p>
         <div className="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
-        <Link href="https://www.instagram.com/mersinarslannakliyat/?igsh=dXZxN3Vjczh6Zjlm#" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+        <Link href={process.env.NEXT_PUBLIC_INSTAGRAM_URL || '#'} target="_blank" rel="noopener noreferrer" className="text-white fs-4">
     <FaInstagram />
   </Link>        
-  <Link href="#" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+  <Link href={process.env.NEXT_PUBLIC_FACEBOOK_URL || '#'} target="_blank" rel="noopener noreferrer" className="text-white fs-4">
     <FaFacebook />
   </Link>
-  <Link href="#" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+  <Link href={process.env.NEXT_PUBLIC_TWITTER_URL || '#'} target="_blank" rel="noopener noreferrer" className="text-white fs-4">
     <FaTwitter />
   </Link>
 
-  <Link href="#" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+  <Link href={process.env.NEXT_PUBLIC_LINKEDIN_URL || '#'} target="_blank" rel="noopener noreferrer" className="text-white fs-4">
     <FaLinkedin />
   </Link>
 </div>
@@ -49,9 +49,9 @@ const Footer = () => {
           <Col md={4} className="text-center text-md-start">
             <h5 className="mb-3">İletişim</h5>
             <address>
-              <strong>Adres:</strong> Mevlana Mahallesi 101038 Sokak No:13/4 <b>Toroslar/Mersin</b><br />
-              <strong>Telefon:</strong> +90 538 514 75 97 <br />
-              <strong>E-posta:</strong> arslanakliyatevdeneve@gmail.com
+              <strong>Adres:</strong> {process.env.NEXT_PUBLIC_ADDRESS || ''}<br />
+              <strong>Telefon:</strong> {process.env.NEXT_PUBLIC_PHONE_NUMBER || ''} <br />
+              <strong>E-posta:</strong> {process.env.NEXT_PUBLIC_EMAIL || ''}
             </address>
           </Col>
         </Row>
