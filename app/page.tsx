@@ -23,7 +23,7 @@ const featuredServices = [
   {
     id: "1",
     title: "Evden Eve Nakliyat",
-    description: "Eşyalarınızı güvenle yeni adresinize taşıyoruz.",
+    description: "Eşyalarınızı güvenle eski adresinizden, yeni adresinize taşıyoruz.",
     icon: <FaBoxes className="fs-1 text-primary mb-3" />,
   },
   {

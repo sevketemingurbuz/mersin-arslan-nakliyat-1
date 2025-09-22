@@ -14,7 +14,7 @@ const AboutPage = () => {
           <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">Hakkımızda</Badge>
           <h1 className="display-4 fw-bold text-dark mb-4">Güvenilir Nakliye Ortağınız</h1>
           <p className="lead text-muted mx-auto" style={{maxWidth: '600px'}}>
-            2005 yılından beri müşteri memnuniyetini ön planda tutarak, profesyonel nakliye hizmetleri sunuyoruz.
+            2008 yılından beri müşteri memnuniyetini ön planda tutarak, profesyonel nakliye hizmetleri sunuyoruz.
           </p>
         </div>
         <Row className="align-items-center mb-5">
@@ -23,7 +23,7 @@ const AboutPage = () => {
               <CardBody className="p-4">
                 <h3 className="fw-bold text-primary mb-4">Hikayemiz</h3>
                 <p className="fs-5 text-muted mb-4">
-                  2005 yılında küçük bir aile şirketi olarak çıktığımız bu yolda, bugün
+                  2008 yılında küçük bir aile şirketi olarak çıktığımız bu yolda, bugün
                   Türkiye&#39;nin dört bir yanına hizmet veren, sektörün lider firmalarından biri haline geldik.
                   Müşteri memnuniyetini her zaman en ön planda tutarak, profesyonel ve güvenilir nakliye
                   hizmetleri sunmayı misyon edindik.
@@ -83,7 +83,7 @@ const AboutPage = () => {
         <Row className="mt-5 pt-5">
           <Col md={3} className="text-center mb-4">
             <div className="bg-primary text-white rounded-3 p-4">
-              <h2 className="fw-bold mb-1">18+</h2>
+              <h2 className="fw-bold mb-1">15+</h2>
               <p className="mb-0">Yıllık Deneyim</p>
             </div>
           </Col>
@@ -95,7 +95,7 @@ const AboutPage = () => {
           </Col>
           <Col md={3} className="text-center mb-4">
             <div className="bg-warning text-white rounded-3 p-4">
-              <h2 className="fw-bold mb-1">50+</h2>
+              <h2 className="fw-bold mb-1">20+</h2>
               <p className="mb-0">Araç Filosu</p>
             </div>
           </Col>
