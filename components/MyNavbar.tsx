@@ -35,10 +35,10 @@ const MyNavbar = () => {
       <Container>
         <Navbar.Brand as={Link} href="/">
           <Image
-            src="/logo/artBoard1.png"
+            src="/logo/artBoardMain.png"
             alt="Logo"
             width={120}
-            height={110}
+            height={80}
             style={{ objectFit: "contain" }}
             priority
           />
@@ -138,7 +138,7 @@ const MyNavbar = () => {
           </Nav>
           <Button
             variant="success"
-            href="https://wa.me/905362002944"
+            href="https://wa.me/905384942382"
             target="_blank"
             className="ms-3"
             onClick={handleLinkClick}

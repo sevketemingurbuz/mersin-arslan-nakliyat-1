@@ -1,12 +1,65 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button, CardBody, CardTitle, CardText, CardFooter, Badge } from 'react-bootstrap';
 import Link from 'next/link';
-import { servicesData } from '@/app/data/services';
+import {FaBriefcase,FaShieldAlt, FaClock, FaDollarSign, FaHeadset, FaTruck, FaHouseUser, FaCity, FaWarehouse, FaIndustry} from 'react-icons/fa'; 
 
+import { FaStore } from 'react-icons/fa6';
 export const metadata = {
   title: 'Tüm Hizmetlerimiz | Nakliye Firması',
   description: 'Nakliye firmamızın sunduğu tüm profesyonel hizmetler: evden eve nakliyat, ofis taşımacılığı, eşya depolama ve daha fazlası.',
 };
+
+const services = [
+  {
+    id: '1',
+    title: 'Evden Eve Nakliyat',
+    description: 'Eşyalarınızı güvenle yeni adresinize taşıyoruz. Paketleme, montaj ve demontaj dahil profesyonel çözümler sunuyoruz.',
+    icon: <FaTruck className="fs-1 text-primary" />,
+  },
+
+  {
+    id: '2',
+    title: 'Şehir İçi Nakliyat',
+    description: 'Mersin içi nakliye ihtiyaçlarınız için hızlı, güvenilir ve ekonomik çözümler sunuyoruz.',
+    icon: <FaHouseUser className="fs-1 text-primary" />,
+  },
+
+  {
+    id: '3',
+    title: 'Şehir Dışı Nakliyat',
+    description: 'Türkiye’nin her noktasına sigortalı ve güvenli şehirler arası nakliyat hizmeti.',
+    icon: <FaCity className="fs-1 text-primary" />,
+  },
+
+  {
+    id: '4',
+    title: 'Ofis Taşımacılığı',
+    description: 'İşinizi aksatmadan, profesyonel ve sistemli ofis taşıma çözümleri.',
+    icon: <FaBriefcase className="fs-1 text-primary" />,
+  },
+
+  {
+    id: '5',
+    title: 'Fabrika Taşımacılığı',
+    description: 'Ağır makine ve endüstriyel ekipmanlar için güvenli fabrika taşımacılığı hizmeti.',
+    icon: <FaIndustry className="fs-1 text-primary" />,
+  },
+
+  {
+    id: '6',
+    title: 'Mağaza Taşımacılığı',
+    description: 'Mağaza ve showroom taşımacılığında hızlı ve güvenli çözümler.',
+    icon: <FaStore className="fs-1 text-primary" />,
+  },
+
+
+  {
+    id: '7',
+    title: 'Eşya Depolama',
+    description: 'Fazla eşyalarınız için güvenli, nem ve rutubetten korunmuş depolama alanları.',
+    icon: <FaWarehouse className="fs-1 text-primary" />,
+  },
+];
 
 const ServicesPage = () => {
   return (
@@ -21,14 +74,13 @@ const ServicesPage = () => {
           </p>
         </div>
         <Row className="g-4">
-          {servicesData.map((service, index) => (
+            {services.map((service, index) => (
             <Col md={6} lg={4} key={service.id}>
               <Card className="h-100 border-0 shadow-sm service-card" style={{transition: 'all 0.3s ease'}}>
                 <CardBody className="p-4">
                   <div className="text-center mb-3">
-                    <div className={`bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3`} 
-                         style={{width: '70px', height: '70px'}}>
-                      <i className={`fas fa-truck text-primary fs-3`}></i>
+                    <div className={`bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3`} >
+                         <i>{service.icon}</i>
                     </div>
                   </div>
                   <CardTitle className="fw-bold text-center mb-3 fs-5">{service.title}</CardTitle>
@@ -55,7 +107,7 @@ const ServicesPage = () => {
           <Col md={3} className="text-center mb-4">
             <div className="bg-white rounded-3 p-4 shadow-sm h-100">
               <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '60px', height: '60px'}}>
-                <i className="fas fa-shield-alt text-primary fs-4"></i>
+                <FaShieldAlt className="fs-1 text-primary" />
               </div>
               <h5 className="fw-bold mb-2">Güvenilir Hizmet</h5>
               <p className="text-muted small">Eşyalarınızı güvenle taşıyoruz</p>
@@ -64,7 +116,7 @@ const ServicesPage = () => {
           <Col md={3} className="text-center mb-4">
             <div className="bg-white rounded-3 p-4 shadow-sm h-100">
               <div className="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '60px', height: '60px'}}>
-                <i className="fas fa-clock text-success fs-4"></i>
+                <FaClock className="fs-1 text-success" />
               </div>
               <h5 className="fw-bold mb-2">Zamanında Teslimat</h5>
               <p className="text-muted small">Söz verdiğimiz zamanda teslim</p>
@@ -73,7 +125,7 @@ const ServicesPage = () => {
           <Col md={3} className="text-center mb-4">
             <div className="bg-white rounded-3 p-4 shadow-sm h-100">
               <div className="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '60px', height: '60px'}}>
-                <i className="fas fa-dollar-sign text-warning fs-4"></i>
+                <FaDollarSign className="fs-1 text-warning" />
               </div>
               <h5 className="fw-bold mb-2">Uygun Fiyat</h5>
               <p className="text-muted small">En uygun fiyatlarla hizmet</p>
@@ -82,7 +134,7 @@ const ServicesPage = () => {
           <Col md={3} className="text-center mb-4">
             <div className="bg-white rounded-3 p-4 shadow-sm h-100">
               <div className="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '60px', height: '60px'}}>
-                <i className="fas fa-headset text-info fs-4"></i>
+                <FaHeadset className="fs-1 text-info" />
               </div>
               <h5 className="fw-bold mb-2">7/24 Destek</h5>
               <p className="text-muted small">Her zaman yanınızdayız</p>

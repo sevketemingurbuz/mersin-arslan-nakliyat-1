@@ -1,0 +1,50 @@
+.logo {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+  object-fit: contain;
+}
+
+/* Mobile first approach */
+@media (max-width: 575px) {
+  .logo {
+    max-width: 120px;
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .logo {
+    max-width: 140px;
+    margin-bottom: 0.3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    max-width: 180px;
+    margin: 0 0 0.4rem 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .logo {
+    max-width: 220px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo {
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .logo {
+    max-width: 280px;
+  }
+}
+

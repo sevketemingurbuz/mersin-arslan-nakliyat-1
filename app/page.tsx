@@ -13,7 +13,7 @@ import {
   CarouselCaption,
   Badge,
 } from "react-bootstrap";
-import { FaBoxes, FaTruck, FaShieldAlt } from "react-icons/fa";
+import { FaBoxes, FaTruck, FaShieldAlt, FaUser, FaHandshake} from "react-icons/fa";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import Image from "next/image";
@@ -45,11 +45,18 @@ const testimonials = [
     quote:
       "Harika bir hizmet! Eşyalarım hasarsız ve zamanında teslim edildi. Kesinlikle tavsiye ederim.",
     author: "Ahmet Yılmaz",
+    icons: <FaUser size={30} className="fs-1 text-primary mb-2" />,
   },
   {
     quote: "Profesyonel ve hızlılar. Ofis taşıma sürecimiz çok kolay geçti.",
     author: "Ayşe Kaya",
+    icons: <FaUser size={30} className="fs-1 text-primary mb-2" />,
   },
+  {
+    quote: "Eşyalarımız hızlı ve güvenli bir şekilde taşındı. Çok teşekkür ederim.",
+    author: "Mehmet Demir",
+    icons: <FaUser size={30} className="fs-1 text-primary mb-2" />,
+  }
 ];
 
 const HomePage = () => {
@@ -250,7 +257,7 @@ const HomePage = () => {
                         <p className="lead text-white fst-italic mb-4">{test.quote}</p>
                         <div className="d-flex align-items-center justify-content-center">
                           <div className="bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px'}}>
-                            <i className="fas fa-user text-white"></i>
+                            <i className="fas fa-user text-red mt-2">{test.icons}</i>
                           </div>
                           <div>
                             <h6 className="text-white mb-0 fw-bold">{test.author}</h6>
@@ -283,7 +290,7 @@ const HomePage = () => {
                 <CardBody className="p-4">
                   <div className="text-center mb-4">
                     <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '70px', height: '70px'}}>
-                      <i className="fas fa-paper-plane text-primary fs-2"></i>
+                      <FaHandshake className="fs-1 text-primary" />
                     </div>
                     <h4 className="fw-bold text-primary mb-3">Teklif Alın</h4>
                     <p className="text-muted">Formu doldurun, size en kısa sürede dönüş yapalım.</p>

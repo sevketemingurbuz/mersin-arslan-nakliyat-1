@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, CardBody, Badge, Button } from 'react-bootst
 import { servicesData } from '@/app/data/services'; 
 import ContactForm from '@/components/ContactForm'; 
 import Link from 'next/link';
+import { FaUsers, FaShieldAlt, FaClock, FaTools, FaArrowLeft, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
 // import Image from 'next/image'
 
 interface ServicePageProps {
@@ -78,28 +79,28 @@ const ServicePage = ({ params }: ServicePageProps) => {
                 <div className="mb-4">
                   <div className="d-flex align-items-center mb-3">
                     <div className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '40px', height: '40px'}}>
-                      <i className="fas fa-check text-primary"></i>
+                      <FaUsers className="text-primary" />
                     </div>
                     <span className="fw-bold">Profesyonel Ekip</span>
                   </div>
                   
                   <div className="d-flex align-items-center mb-3">
                     <div className="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '40px', height: '40px'}}>
-                      <i className="fas fa-shield-alt text-success"></i>
+                      <FaShieldAlt className="text-success" />
                     </div>
                     <span className="fw-bold">Sigortalı Taşımacılık</span>
                   </div>
                   
                   <div className="d-flex align-items-center mb-3">
                     <div className="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '40px', height: '40px'}}>
-                      <i className="fas fa-clock text-warning"></i>
+                      <FaClock className="text-warning" />
                     </div>
                     <span className="fw-bold">Zamanında Teslimat</span>
                   </div>
                   
                   <div className="d-flex align-items-center mb-3">
                     <div className="bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '40px', height: '40px'}}>
-                      <i className="fas fa-tools text-info"></i>
+                      <FaTools className="text-info" />
                     </div>
                     <span className="fw-bold">Montaj/Demontaj</span>
                   </div>
@@ -108,19 +109,19 @@ const ServicePage = ({ params }: ServicePageProps) => {
                 <div className="text-center mb-4">
                   <Link href="/our-services">
                     <Button variant="outline-primary" className="me-2">
-                      <i className="fas fa-arrow-left me-2"></i>
+                      <FaArrowLeft className="me-2" />
                       Tüm Hizmetler
                     </Button>
                   </Link>
-                  <Button variant="success" href="https://wa.me/905362002944" target="_blank">
-                    <i className="fab fa-whatsapp me-2"></i>
+                  <Button variant="success" href="https://wa.me/905384942382" target="_blank">
+                    <FaWhatsapp className="me-2" />
                     WhatsApp
                   </Button>
                 </div>
 
                 <div className="border-top pt-4">
                   <h5 className="fw-bold text-primary mb-3">
-                    <i className="fas fa-paper-plane me-2"></i>
+                    <FaPaperPlane className="me-2" />
                     Teklif Alın
                   </h5>
                   <ContactForm />

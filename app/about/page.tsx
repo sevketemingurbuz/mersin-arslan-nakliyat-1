@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Image, Card, CardBody, Badge } from 'react-bootstrap';
+import { FaBuilding, FaCrosshairs } from 'react-icons/fa';
 export const metadata = {
   title: "Hakkımızda | Nakliye Firması",
   description: "Nakliye firmamızın hikayesi, misyonu ve vizyonu hakkında bilgi edinin.",
@@ -55,7 +56,7 @@ const AboutPage = () => {
             <Card className="border-0 shadow-sm h-100 text-center">
               <CardBody className="p-4">
                 <div className="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '80px', height: '80px'}}>
-                  <i className="fas fa-bullseye text-primary fs-2"></i>
+                  <FaBuilding className="fs-1 text-primary" />
                 </div>
                 <h4 className="fw-bold text-dark mb-3">Misyonumuz</h4>
                 <p className="text-muted fs-5">
@@ -68,7 +69,7 @@ const AboutPage = () => {
             <Card className="border-0 shadow-sm h-100 text-center">
               <CardBody className="p-4">
                 <div className="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style={{width: '80px', height: '80px'}}>
-                  <i className="fas fa-eye text-success fs-2"></i>
+                  <FaCrosshairs className="fs-1 text-success" />
                 </div>
                 <h4 className="fw-bold text-dark mb-3">Vizyonumuz</h4>
                 <p className="text-muted fs-5">
