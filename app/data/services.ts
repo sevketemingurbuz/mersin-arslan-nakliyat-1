@@ -4,7 +4,7 @@ export const servicesData = [
     title: 'Evden Eve Nakliyat',
     description: 'Eşyalarınızı güvenle yeni adresinize taşıyoruz. Paketleme, montaj ve demontaj dahil profesyonel çözümler sunuyoruz.',
     content: 'Evden eve nakliyat, uzmanlık ve titizlik gerektiren bir süreçtir. Firmamız, her eşyanız için özel paketleme malzemeleri kullanarak çizilme, kırılma ve deformasyon risklerini ortadan kaldırır. Profesyonel ekibimiz mobilyalarınızı söküp yeni adresinizde kurulumunu gerçekleştirir. Modern araç filomuz ve sigortalı taşımacılık hizmetimiz sayesinde eşyalarınız güvenle taşınır. Sadece taşıma değil, komple bir taşınma çözümü sunuyoruz.',
-    image: '/images/evdeneve.jpg',
+    image: '/images/asansor.png',
   },
   {
     id: '2',
