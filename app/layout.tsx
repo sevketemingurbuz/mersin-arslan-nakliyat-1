@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   themeColor: "#0d6efd",
+    alternates: {
+    canonical: "https://mersinarslannakliyat.com/",
+  },
 };
 
 export default function RootLayout({
