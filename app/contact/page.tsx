@@ -118,7 +118,7 @@ const ContactPage = () => {
                   <Col md={4} className="mb-3">
                     <div className="bg-success bg-opacity-10 rounded-3 p-3">
                       <h6 className="fw-bold text-success mb-1">Müşteri Memnuniyeti</h6>
-                      <p className="text-muted mb-0">%Çözüm Odaklı Yaklaşım</p>
+                      <p className="text-muted mb-0">%100 Çözüm Odaklı Yaklaşım</p>
                     </div>
                   </Col>
                   <Col md={4} className="mb-3">
