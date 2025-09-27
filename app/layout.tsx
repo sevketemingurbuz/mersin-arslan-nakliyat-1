@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "@/components/MyNavbar";
 import Footer from "@/components/Footer";
 import Ping from "@/components/Ping";
+import FabMenu from "@/components/FabMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   themeColor: "#0d6efd",
-    alternates: {
+  alternates: {
     canonical: "https://mersinarslannakliyat.com/",
   },
 };
@@ -34,6 +35,7 @@ export default function RootLayout({
         <div className="d-flex flex-column min-vh-100">
           <MyNavbar />
           <main className="flex-grow-1">{children}</main>
+          <FabMenu />
           <Footer />
         </div>
       </body>
