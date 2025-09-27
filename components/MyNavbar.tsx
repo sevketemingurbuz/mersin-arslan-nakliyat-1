@@ -128,6 +128,15 @@ const MyNavbar = () => {
             </Nav.Link>
             <Nav.Link
               as={Link}
+              href="/gallery"
+              active={pathname === "/gallery"}
+              className="px-3 fs-5"
+              onClick={handleLinkClick}
+            >
+              Galeri
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
               href="/contact"
               active={pathname === "/contact"}
               className="px-3 fs-5"
