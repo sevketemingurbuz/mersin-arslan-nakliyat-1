@@ -13,7 +13,7 @@ const FabMenu = () => {
 
   return (
     <div className="fab-menu d-md-none">
-      // whatsapp
+      {/*// whatsapp*/}
       <Button
         variant="success"
         className={`fab-button whatsapp ${isOpen ? "show" : ""}`}
@@ -42,7 +42,7 @@ const FabMenu = () => {
         <FaWhatsapp size={24} />
       </Button>
 
-      // phone
+      {/*phone*/}
       <Button
         variant="primary"
         className={`fab-button phone ${isOpen ? "show" : ""}`}
@@ -69,7 +69,7 @@ const FabMenu = () => {
         <FaPhone size={20} />
       </Button>
 
-      // fab menu main
+      {/*// fab menu main*/}
       <Button
         variant="dark"
         className="fab-main"
@@ -95,7 +95,7 @@ const FabMenu = () => {
         {isOpen ? <FaTimes size={24} /> : <FaPlus size={24} />}
       </Button>
 
-      // backdrop
+      {/*backdrop*/}
       {isOpen && (
         <div
           className="fab-backdrop"
