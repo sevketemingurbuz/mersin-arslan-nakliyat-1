@@ -62,8 +62,8 @@ const testimonials = [
 const HomePage = () => {
   return (
     <main>
-      <Carousel className={styles.indicators}>
-        <CarouselItem>
+      <Carousel className={styles.indicators} interval={2800} pause={false}>
+        <CarouselItem interval={2800}>
           <div style={{ position: "relative", width: "100%", height: "60vh" }}>
             <Image
               src="/images/fx1.jpg"
@@ -97,7 +97,7 @@ const HomePage = () => {
           </CarouselCaption>
         </CarouselItem>
 
-        <CarouselItem>
+        <CarouselItem interval={2500}>
           <div style={{ position: "relative", width: "100%", height: "60vh" }}>
             <Image
               src="/images/fx1.2.jpg"
@@ -130,7 +130,7 @@ const HomePage = () => {
           </CarouselCaption>
         </CarouselItem>
 
-        <CarouselItem>
+        <CarouselItem interval={2500}>
           <div style={{ position: "relative", width: "100%", height: "60vh" }}>
             <Image
               src="/images/fx1.3.jpg"

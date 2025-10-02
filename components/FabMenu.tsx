@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { FaWhatsapp, FaPhone, FaPlus, FaTimes } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaTimes, FaHeadset } from "react-icons/fa";
 
 const FabMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,10 +89,12 @@ const FabMenu = () => {
           boxShadow: "0 6px 16px rgba(0,0,0,0.4)",
           zIndex: 1001,
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-          transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+          transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+          backgroundColor: isOpen ? "#d31d1d" : "green",
+          border: isOpen ? "none" : "1px solid #1c972a",
         }}
       >
-        {isOpen ? <FaTimes size={24} /> : <FaPlus size={24} />}
+        {isOpen ? <FaTimes style={{color:'#fff'}} size={24} /> : <FaHeadset size={24} />}
       </Button>
 
       // backdrop

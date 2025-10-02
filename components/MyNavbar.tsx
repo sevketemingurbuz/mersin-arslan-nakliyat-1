@@ -15,7 +15,9 @@ const MyNavbar = () => {
     if (navbarCollapse) {
       // close dropdown
       if (navbarCollapse.classList.contains("show")) {
-        const toggleButton = document.querySelector('.navbar-toggler') as HTMLElement;
+        const toggleButton = document.querySelector(
+          ".navbar-toggler"
+        ) as HTMLElement;
         if (toggleButton) {
           toggleButton.click();
         }
@@ -25,12 +27,12 @@ const MyNavbar = () => {
 
   return (
     <Navbar
-      bg="dark"
-      variant="dark"
+      bg="light"
+      variant="light"
       expand="lg"
       sticky="top"
-      className="shdow-lg"
-      style={{ minHeight: "100px" }}
+      className="shadow-sm bg-white border-bottom"
+      style={{ minHeight: "100px", backgroundColor: "#ffffff" }}
     >
       <Container>
         <Navbar.Brand as={Link} href="/">

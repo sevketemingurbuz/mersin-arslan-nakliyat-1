@@ -1,7 +1,7 @@
 .carouselCaption {
   z-index: 2;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-  background-color: rgba(0, 0, 0, 0.068);
+  /* background-color: rgba(0, 0, 0, 0.068); */
   border-radius: 20px;
 }
 
