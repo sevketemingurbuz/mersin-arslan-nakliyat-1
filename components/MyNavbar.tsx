@@ -37,10 +37,10 @@ const MyNavbar = () => {
       <Container>
         <Navbar.Brand as={Link} href="/">
           <Image
-            src="/logo/artBoardMain.png"
+            src="/logo/abMain.png"
             alt="Logo"
-            width={120}
-            height={80}
+            width={150}
+            height={85}
             style={{ objectFit: "contain" }}
             priority
           />
