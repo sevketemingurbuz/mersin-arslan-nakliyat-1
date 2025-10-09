@@ -26,9 +26,9 @@ const ContactForm = () => {
     setStatus("");
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+      const apiUrl = "https://aws-ses-production.up.railway.app";
 
-      const response = await fetch(`${apiUrl}/mail/send`, {
+      const response = await fetch(`${apiUrl}/api/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
