@@ -26,7 +26,7 @@ const ContactForm = () => {
     setStatus("");
 
     try {
-      const apiUrl = "https://aws-ses-production.up.railway.app";
+      const apiUrl = "https://aws-ses.onrender.com";
 
       const response = await fetch(`${apiUrl}/api/send`, {
         method: "POST",
