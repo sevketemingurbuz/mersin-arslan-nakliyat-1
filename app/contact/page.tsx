@@ -1,10 +1,27 @@
-import React from 'react';
-import { Container, Row, Col, Card, CardBody, CardTitle, Badge } from 'react-bootstrap';
-import ContactForm from '@/components/ContactForm';
-import {FaClock, FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaMap, FaPaperPlane } from 'react-icons/fa';
+import React from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardBody,
+  CardTitle,
+  Badge,
+} from "react-bootstrap";
+import ContactForm from "@/components/ContactForm";
+import {
+  FaClock,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaWhatsapp,
+  FaMap,
+  FaPaperPlane,
+} from "react-icons/fa";
 export const metadata = {
-  title: 'İletişim | Mersin Arslan Nakliyat',
-  description: 'Bize ulaşın. Adres, telefon, e-posta bilgileri ve iletişim formu.',
+  title: "İletişim | Mersin Arslan Nakliyat",
+  description:
+    "Bize ulaşın. Adres, telefon, e-posta bilgileri ve iletişim formu.",
 };
 
 const ContactPage = () => {
@@ -12,10 +29,15 @@ const ContactPage = () => {
     <div className="bg-light py-5">
       <Container>
         <div className="text-center mb-5">
-          <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">İletişim</Badge>
-          <h1 className="display-4 fw-bold text-dark mb-4">Bizimle İletişime Geçin</h1>
-          <p className="lead text-muted mx-auto" style={{maxWidth: '600px'}}>
-            Nakliye ihtiyaçlarınız için 7/24 hizmetinizdeyiz. Hemen iletişime geçin, size en uygun çözümü sunalım.
+          <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">
+            İletişim
+          </Badge>
+          <h2 className="display-4 fw-bold text-dark mb-4">
+            Bizimle İletişime Geçin
+          </h2>
+          <p className="lead text-muted mx-auto" style={{ maxWidth: "600px" }}>
+            Nakliye ihtiyaçlarınız için 7/24 hizmetinizdeyiz. Hemen iletişime
+            geçin, size en uygun çözümü sunalım.
           </p>
         </div>
 
@@ -27,20 +49,29 @@ const ContactPage = () => {
                   <FaPhone className="me-2" />
                   İletişim Bilgileri
                 </CardTitle>
-                
+
                 <div className="mb-4">
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px'}}>
+                    <div
+                      className="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: "50px", height: "50px" }}
+                    >
                       <FaMapMarkerAlt className="text-primary" />
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">Adres</h6>
-                      <p className="text-muted mb-0">Mevlana Mahallesi 101038 Sokak No:13/4 <br /> <b>Toroslar/Mersin</b></p>
+                      <p className="text-muted mb-0">
+                        Mevlana Mahallesi 101038 Sokak No:13/4 <br />{" "}
+                        <b>Toroslar/Mersin</b>
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px'}}>
+                    <div
+                      className="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: "50px", height: "50px" }}
+                    >
                       <FaPhone className="text-success" />
                     </div>
                     <div>
@@ -48,19 +79,27 @@ const ContactPage = () => {
                       <p className="text-muted mb-0">+90 538 514 75 97</p>
                     </div>
                   </div>
-                  
+
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px'}}>
+                    <div
+                      className="bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: "50px", height: "50px" }}
+                    >
                       <FaEnvelope className="text-info" />
                     </div>
                     <div>
                       <h6 className="fw-bold mb-1">E-posta</h6>
-                      <p className="text-muted mb-0">arslanakliyatevdeneve@gmail.com</p>
+                      <p className="text-muted mb-0">
+                        arslanakliyatevdeneve@gmail.com
+                      </p>
                     </div>
                   </div>
-                  
+
                   <div className="d-flex align-items-center mb-3">
-                    <div className="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3" style={{width: '50px', height: '50px'}}>
+                    <div
+                      className="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center me-3"
+                      style={{ width: "50px", height: "50px" }}
+                    >
                       <FaWhatsapp className="text-warning" />
                     </div>
                     <div>
@@ -111,20 +150,32 @@ const ContactPage = () => {
                 <Row>
                   <Col md={4} className="mb-3">
                     <div className="bg-primary bg-opacity-10 rounded-3 p-3">
-                      <h6 className="fw-bold text-primary mb-1">Firma Avantajları</h6>
-                      <p className="text-muted mb-0">Yüksek Standartlarla Hizmet</p>
+                      <h6 className="fw-bold text-primary mb-1">
+                        Firma Avantajları
+                      </h6>
+                      <p className="text-muted mb-0">
+                        Yüksek Standartlarla Hizmet
+                      </p>
                     </div>
                   </Col>
                   <Col md={4} className="mb-3">
                     <div className="bg-success bg-opacity-10 rounded-3 p-3">
-                      <h6 className="fw-bold text-success mb-1">Müşteri Memnuniyeti</h6>
-                      <p className="text-muted mb-0">%100 Çözüm Odaklı Yaklaşım</p>
+                      <h6 className="fw-bold text-success mb-1">
+                        Müşteri Memnuniyeti
+                      </h6>
+                      <p className="text-muted mb-0">
+                        %100 Çözüm Odaklı Yaklaşım
+                      </p>
                     </div>
                   </Col>
                   <Col md={4} className="mb-3">
                     <div className="bg-info bg-opacity-10 rounded-3 p-3">
-                      <h6 className="fw-bold text-info mb-1">Deneyimli Kadro</h6>
-                      <p className="text-muted mb-0">Uzman ve Profesyonel Ekip</p>
+                      <h6 className="fw-bold text-info mb-1">
+                        Deneyimli Kadro
+                      </h6>
+                      <p className="text-muted mb-0">
+                        Uzman ve Profesyonel Ekip
+                      </p>
                     </div>
                   </Col>
                 </Row>

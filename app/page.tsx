@@ -70,9 +70,10 @@ const testimonials = [
 const HomePage = () => {
   return (
     <main>
-      <div className="text-center py-3 visually-hidden">
-        <h1>Mersin Arslan Nakliyat – Profesyonel ve Hızlı Ulaşım Çözümleri</h1>
-      </div>
+      <h1 className="text-center py-3 visually-hidden">
+        Mersin Arslan Nakliyat – Profesyonel ve Hızlı Ulaşım Çözümleri
+      </h1>
+
       <Carousel className={styles.indicators} interval={2800} pause={false}>
         <CarouselItem interval={2800}>
           <div style={{ position: "relative", width: "100%", height: "60vh" }}>

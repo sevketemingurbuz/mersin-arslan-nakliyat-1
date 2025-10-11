@@ -11,7 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mersin Arslan Nakliyat",
-  description: "Profesyonel ve Hızlı Ulaşım Çözümleri",
+  description:
+    "Mersin'de profesyonel ve hızlı nakliyat hizmetleri. Evden eve, ofis ve fabrika taşımacılığı.",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
@@ -21,6 +22,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://mersinarslannakliyat.com/",
   },
+  openGraph: {
+    title: "Mersin Arslan Nakliyat",
+    description:
+      "Mersin'de profesyonel ve hızlı nakliyat hizmetleri. Evden eve, ofis ve fabrika taşımacılığı.",
+    url: "https://www.mersinarslannakliyat.com/",
+    siteName: "Mersin Arslan Nakliyat",
+    type: "website",
+  },
+  keywords:
+    "nakliyat, nakliye, mersin nakliyat, mersin nakliye, taşımacılık, ofis taşıma, evden eve, fabrika",
 };
 
 export default function RootLayout({
