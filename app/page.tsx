@@ -331,9 +331,9 @@ const HomePage = () => {
             <Badge bg="primary" className="mb-3 fs-6 px-3 py-2">
               İletişim
             </Badge>
-            <h1 className="display-4 fw-bold text-dark mb-4">
+            <h2 className="display-4 fw-bold text-dark mb-4">
               Bir Projeniz mi Var?
-            </h1>
+            </h2>
             <p
               className="lead text-muted mx-auto"
               style={{ maxWidth: "600px" }}

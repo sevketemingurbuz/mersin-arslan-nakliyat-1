@@ -1,9 +1,335 @@
-.dropdownItem:hover {
-  background-color: #75757512;
-  color: rgb(0, 0, 0);
+/* CSS Navbar */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #e9ecef;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 
-.nav-link.active {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  position: absolute;
+  left: 20px;
+}
+
+.logo {
+  max-height: 130px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Mobile Toggle */
+.toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+}
+
+.toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+  margin: 0 200px 0 150px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover {
+  color: #198754;
+  background-color: #f8f9fa;
+}
+
+.navLink.active {
+  color: #198754;
   font-weight: 600;
-  color: #198754 !important;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdownToggle:hover {
+  color: #198754;
+  background-color: #f8f9fa;
+}
+
+.dropdownIcon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  color: #666;
+}
+
+.dropdownIconOpen {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownItem {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background-color: #f8f9fa;
+  color: #198754;
+}
+
+/* WhatsApp Button */
+.whatsappButton {
+  background-color: #25d366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 20px;
+}
+
+.whatsappButton:hover {
+  background-color: #128c7e;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .toggle {
+    display: flex;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    margin: 0;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    z-index: 999;
+  }
+  
+  .menuOpen {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .navLinks {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  
+  .navLink {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .dropdown {
+    width: 100%;
+  }
+  
+  .dropdownToggle {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /* Mobile dropdown menu */
+  .dropdownMenu {
+    position: static;
+    width: 100%;
+    background: #f8f9fa;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    padding: 0;
+    margin: 10px 0 0 0;
+    border-left: 3px solid #198754;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  /* Show dropdown when active */
+  .dropdownActive .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+  }
+  
+  .dropdownOpen {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+  }
+  
+  .dropdownItem {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #e9ecef;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .dropdownItem:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdownItem:hover {
+    background-color: #e9ecef;
+    color: #198754;
+  }
+  
+  .whatsappButton {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .logo {
+    max-height: 100px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    max-height: 90px;
+  }
 }

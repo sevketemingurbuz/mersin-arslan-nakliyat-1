@@ -1,164 +1,187 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Navbar, Container, Nav, Button, NavDropdown } from "react-bootstrap";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/Navbar.module.css";
 import Image from "next/image";
 
+const services = [
+  { id: '1', title: 'Evden Eve Nakliyat' },
+  { id: '2', title: 'Şehir İçi Nakliyat' },
+  { id: '3', title: 'Şehir Dışı Nakliyat' },
+  { id: '4', title: 'Ofis Taşımacılığı' },
+  { id: '5', title: 'Fabrika Taşımacılığı' },
+  { id: '6', title: 'Mağaza Taşımacılığı' },
+  { id: '7', title: 'Eşya Depolama' },
+];
+
 const MyNavbar = () => {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleLinkClick = () => {
-    const navbarCollapse = document.getElementById("basic-navbar-nav");
-    if (navbarCollapse) {
-      // close dropdown
-      if (navbarCollapse.classList.contains("show")) {
-        const toggleButton = document.querySelector(
-          ".navbar-toggler"
-        ) as HTMLElement;
-        if (toggleButton) {
-          toggleButton.click();
-        }
-      }
-    }
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
   };
 
+  const handleToggleMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log('Toggle clicked, current isMenuOpen:', isMenuOpen);
+    setIsMenuOpen(prev => !prev);
+    setIsDropdownOpen(false);
+  };
+
+  const handleToggleDropdown = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log('Dropdown toggle clicked');
+    setIsDropdownOpen(prev => !prev);
+  };
+
+  // Close dropdown when clicking outside (Desktop only)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        if (window.innerWidth >= 992) {
+          setIsDropdownOpen(false);
+        }
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      
+      // Toggle button'a tıklandıysa, kapatma
+      if (target.closest(`.${styles.toggle}`)) {
+        return;
+      }
+      
+      // Menu div'in dışında tıklandıysa, kapat
+      if (menuRef.current && !menuRef.current.contains(target)) {
+        setIsMenuOpen(false);
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [isMenuOpen]);
+
   return (
-    <Navbar
-      bg="light"
-      variant="light"
-      expand="lg"
-      sticky="top"
-      className="shadow-sm bg-white border-bottom"
-      style={{ minHeight: "100px", backgroundColor: "#ffffff" }}
-    >
-      <Container>
-        <Navbar.Brand as={Link} href="/">
+    <nav className={styles.navbar}>
+      <div className={styles.container}>
+        <Link href="/" className={styles.brand} onClick={handleLinkClick}>
           <Image
-            src="/logo/abMain.png"
+            src="/logo/goldMain.png"
             alt="Logo"
-            width={150}
-            height={85}
-            style={{ objectFit: "contain" }}
+            width={300}
+            height={180}
+            className={styles.logo}
             priority
           />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mx-auto">
-            <Nav.Link
-              as={Link}
-              href="/"
-              active={pathname === "/"}
-              className="px-3 fs-5"
+        </Link>
+        
+        <button 
+          className={styles.toggle}
+          onClick={handleToggleMenu}
+          type="button"
+          aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`${styles.menu} ${isMenuOpen ? styles.menuOpen : ''}`} ref={menuRef}>
+          <div className={styles.navLinks}>
+            <Link 
+              href="/" 
+              className={`${styles.navLink} ${pathname === "/" ? styles.active : ''}`}
               onClick={handleLinkClick}
             >
               Anasayfa
-            </Nav.Link>
-            <NavDropdown
-              title="Hizmetlerimiz"
-              id="hizmetler-dropdown"
-              className="px-3 fs-5"
-            >
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/1"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
+            </Link>
+            
+            <div className={`${styles.dropdown} ${isDropdownOpen ? styles.dropdownActive : ''}`} ref={dropdownRef}>
+              <button 
+                className={styles.dropdownToggle}
+                onClick={handleToggleDropdown}
+                type="button"
+                aria-expanded={isDropdownOpen}
               >
-                Evden Eve Nakliyat
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/2"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
-              >
-                Şehir İçi Nakliyat
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/3"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
-              >
-                Şehir Dışı Nakliyat
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/4"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
-              >
-                Ofis Taşımacılığı
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/5"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
-              >
-                Fabrika Taşımacılığı
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/6"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
-              >
-                Mağaza Taşımacılığı
-              </NavDropdown.Item>
-              <NavDropdown.Item
-                as={Link}
-                href="/our-services/7"
-                className={styles.dropdownItem}
-                onClick={handleLinkClick}
-              >
-                Eşya Depolama
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link
-              as={Link}
-              href="/about"
-              active={pathname === "/about"}
-              className="px-3 fs-5"
+                Hizmetlerimiz
+                <span className={`${styles.dropdownIcon} ${isDropdownOpen ? styles.dropdownIconOpen : ''}`}>
+                  ▼
+                </span>
+              </button>
+              <div className={`${styles.dropdownMenu} ${isDropdownOpen ? styles.dropdownOpen : ''}`}>
+                {services.map((service) => (
+                  <Link 
+                    key={service.id}
+                    href={`/our-services/${service.id}`} 
+                    className={styles.dropdownItem} 
+                    onClick={handleLinkClick}
+                  >
+                    {service.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <Link 
+              href="/about" 
+              className={`${styles.navLink} ${pathname === "/about" ? styles.active : ''}`}
               onClick={handleLinkClick}
             >
               Hakkımızda
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              href="/gallery"
-              active={pathname === "/gallery"}
-              className="px-3 fs-5"
+            </Link>
+            <Link 
+              href="/gallery" 
+              className={`${styles.navLink} ${pathname === "/gallery" ? styles.active : ''}`}
               onClick={handleLinkClick}
             >
               Galeri
-            </Nav.Link>
-            <Nav.Link
-              as={Link}
-              href="/contact"
-              active={pathname === "/contact"}
-              className="px-3 fs-5"
+            </Link>
+            <Link 
+              href="/contact" 
+              className={`${styles.navLink} ${pathname === "/contact" ? styles.active : ''}`}
               onClick={handleLinkClick}
             >
               İletişim
-            </Nav.Link>
-          </Nav>
-          <Button
-            variant="success"
+            </Link>
+          </div>
+          
+          <a 
             href="https://wa.me/905385147597"
             target="_blank"
-            className="ms-3"
+            rel="noopener noreferrer"
+            className={styles.whatsappButton}
             onClick={handleLinkClick}
           >
             Whatsapp İletişim
-          </Button>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 };
 
