@@ -26,6 +26,8 @@ const MyNavbar = () => {
   const handleLinkClick = () => {
     setIsMenuOpen(false);
     setIsDropdownOpen(false);
+    // Fab menüyü kapat
+    window.dispatchEvent(new CustomEvent('navLinkClicked'));
   };
 
   const handleToggleMenu = (e: React.MouseEvent<HTMLButtonElement>) => {

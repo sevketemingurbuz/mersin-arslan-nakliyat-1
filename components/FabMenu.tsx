@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { FaWhatsapp, FaPhone, FaTimes, FaHeadset } from "react-icons/fa";
 
@@ -11,9 +11,27 @@ const FabMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  // Navbar linklerine tıklandığında fab menüyü kapat
+  useEffect(() => {
+    const handleNavLinkClick = () => {
+      closeMenu();
+    };
+
+    // Custom event listener ekle
+    window.addEventListener('navLinkClicked', handleNavLinkClick);
+
+    return () => {
+      window.removeEventListener('navLinkClicked', handleNavLinkClick);
+    };
+  }, []);
+
   return (
     <div className="fab-menu d-md-none">
-      {/*// whatsapp*/}
+      {/*whatsapp*/}
       <Button
         variant="success"
         className={`fab-button whatsapp ${isOpen ? "show" : ""}`}
@@ -23,8 +41,8 @@ const FabMenu = () => {
         aria-label="WhatsApp ile iletişim kur"
         style={{
           position: "fixed",
-          bottom: isOpen ? "120px" : "80px",
-          left: "20px",
+          bottom: isOpen ? "140px" : "80px",
+          left: "30px",
           width: "56px",
           height: "56px",
           borderRadius: "50%",
@@ -42,16 +60,17 @@ const FabMenu = () => {
         <FaWhatsapp size={24} />
       </Button>
 
-      {/*phone*/}
+      {/*phone - 1*/}
       <Button
         variant="primary"
-        className={`fab-button phone ${isOpen ? "show" : ""}`}
+        className={`fab-button phone-1 ${isOpen ? "show" : ""}`}
         href="tel:+905385147597"
-        aria-label="Telefon ile ara"
+        aria-label="Cep telefonu 1"
+        title="Cep Telefonu 1"
         style={{
           position: "fixed",
-          bottom: isOpen ? "180px" : "80px",
-          left: "20px",
+          bottom: isOpen ? "200px" : "80px",
+          left: "30px",
           width: "56px",
           height: "56px",
           borderRadius: "50%",
@@ -66,10 +85,74 @@ const FabMenu = () => {
           pointerEvents: isOpen ? "auto" : "none",
         }}
       >
-        <FaPhone size={20} />
+        <div style={{ position: "relative" }}>
+          <FaPhone size={20} />
+          <span style={{
+            position: "absolute",
+            top: "-8px",
+            right: "-8px",
+            backgroundColor: "#fff",
+            color: "#007bff",
+            borderRadius: "50%",
+            width: "18px",
+            height: "18px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "12px",
+            fontWeight: "bold",
+            border: "2px solid #007bff"
+          }}>1</span>
+        </div>
       </Button>
 
-      {/*// fab menu main*/}
+      {/*phone - 2*/}
+      <Button
+        variant="primary"
+        className={`fab-button phone-2 ${isOpen ? "show" : ""}`}
+        href="tel:+905510346582"
+        aria-label="Cep telefonu 2"
+        title="Cep Telefonu 2"
+        style={{
+          position: "fixed",
+          bottom: isOpen ? "260px" : "80px",
+          left: "30px",
+          width: "56px",
+          height: "56px",
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+          zIndex: 1000,
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          opacity: isOpen ? 1 : 0,
+          transform: isOpen ? "scale(1)" : "scale(0)",
+          pointerEvents: isOpen ? "auto" : "none",
+        }}
+      >
+        <div style={{ position: "relative" }}>
+          <FaPhone size={20} />
+          <span style={{
+            position: "absolute",
+            top: "-8px",
+            right: "-8px",
+            backgroundColor: "#fff",
+            color: "#007bff",
+            borderRadius: "50%",
+            width: "18px",
+            height: "18px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "12px",
+            fontWeight: "bold",
+            border: "2px solid #007bff"
+          }}>2</span>
+        </div>
+      </Button>
+
+      {/* fab menu main*/}
       <Button
         variant="dark"
         className="fab-main"
@@ -78,8 +161,8 @@ const FabMenu = () => {
         aria-expanded={isOpen}
         style={{
           position: "fixed",
-          bottom: "20px",
-          left: "20px",
+          bottom: "50px",
+          left: "35px",
           width: "64px",
           height: "64px",
           borderRadius: "50%",
@@ -94,7 +177,11 @@ const FabMenu = () => {
           border: isOpen ? "none" : "1px solid #1c972a",
         }}
       >
-        {isOpen ? <FaTimes style={{color:'#fff'}} size={24} /> : <FaHeadset size={24} />}
+        {isOpen ? (
+          <FaTimes style={{ color: "#fff" }} size={24} />
+        ) : (
+          <FaHeadset size={24} />
+        )}
       </Button>
 
       {/*backdrop*/}
