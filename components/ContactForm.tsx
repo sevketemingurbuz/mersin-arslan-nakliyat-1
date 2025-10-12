@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Form, Button, Card, Alert } from "react-bootstrap";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ const ContactForm = () => {
 
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
+  const [kvkkConsent, setKvkkConsent] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -20,34 +21,184 @@ const ContactForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setKvkkConsent(e.target.checked);
+  };
+
+  // Başarısız göndermeler kontrolü
+  useEffect(() => {
+    const checkFailedSubmissions = async () => {
+      const failedSubmission = localStorage.getItem("failedFormSubmission");
+      if (failedSubmission) {
+        try {
+          const data = JSON.parse(failedSubmission);
+
+          // 24 saatten eski ise silinecekk
+          const submissionTime = new Date(data.timestamp);
+          const now = new Date();
+          const hoursDiff =
+            (now.getTime() - submissionTime.getTime()) / (1000 * 60 * 60);
+
+          if (hoursDiff > 24) {
+            localStorage.removeItem("failedFormSubmission");
+            return;
+          }
+
+          // Retry count kontrolü (maksimum 3 deneme)
+          if (data.retryCount >= 3) {
+            localStorage.removeItem("failedFormSubmission");
+            return;
+          }
+
+          if (process.env.NODE_ENV === "development") {
+            console.log("Başarısız gönderim bulundu, tekrar deneniyor:", data);
+          }
+
+          const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+          const response = await fetch(`${apiUrl}/api/send`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              subject: data.subject,
+              message: data.message,
+              name: data.name,
+              phone: data.phone,
+            }),
+            mode: "cors",
+          });
+
+          if (response.ok) {
+            if (process.env.NODE_ENV === "development") {
+              console.log("Başarısız gönderim başarıyla tamamlandı");
+            }
+            localStorage.removeItem("failedFormSubmission");
+          } else {
+            // Retry count artırma olayı
+            const updatedData = {
+              ...data,
+              retryCount: (data.retryCount || 0) + 1,
+            };
+            localStorage.setItem(
+              "failedFormSubmission",
+              JSON.stringify(updatedData)
+            );
+
+            if (process.env.NODE_ENV === "development") {
+              console.log(
+                "Tekrar deneme başarısız, retry count:",
+                updatedData.retryCount
+              );
+            }
+          }
+        } catch (error) {
+          if (process.env.NODE_ENV === "development") {
+            console.warn("Başarısız gönderim tekrar deneme hatası:", error);
+          }
+        }
+      }
+    };
+
+    checkFailedSubmissions();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setStatus("");
 
-    try {
-      const apiUrl = "https://aws-ses.onrender.com";
+    // anında başarılı gönderim mesajı gelcek
+    setStatus(
+      "Talebiniz başarıyla iletildi. En kısa sürede size dönüş yapacağız."
+    );
 
-      const response = await fetch(`${apiUrl}/api/send`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // Formu sıfırlıanıyor burda
+    setFormData({ subject: "", message: "", name: "", phone: "" });
+    setKvkkConsent(false);
+    setLoading(false);
 
-      if (response.ok) {
-        setStatus("Talebiniz başarıyla iletildi.");
-        setFormData({ subject: "", message: "", name: "", phone: "" });
-      } else {
-        setStatus("Bir hata oluştu. Lütfen tekrar deneyin.");
+    // backende iletiyoruz burda
+    const sendToBackend = async () => {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+        // AbortController ile timeout ekliyorm
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+        const response = await fetch(`${apiUrl}/api/send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(formData),
+          signal: controller.signal,
+          mode: "cors", // CORS modu
+        });
+
+        clearTimeout(timeoutId);
+
+        if (!response.ok) {
+          if (process.env.NODE_ENV === "development") {
+            console.warn(
+              "Backend gönderimi başarısız:",
+              response.status,
+              response.statusText
+            );
+          }
+          // Başarısız olursa localStorage'a kaydediyoruz
+          const failedSubmission = {
+            ...formData,
+            timestamp: new Date().toISOString(),
+            retryCount: 0,
+          };
+          localStorage.setItem(
+            "failedFormSubmission",
+            JSON.stringify(failedSubmission)
+          );
+        } else {
+          if (process.env.NODE_ENV === "development") {
+            console.log("Backend'e başarıyla gönderildi");
+          }
+          // Başarılı olursa localStorage'dan temizliyoruz
+          localStorage.removeItem("failedFormSubmission");
+        }
+      } catch (error) {
+        // Sadece development modunda detaylı log
+        if (process.env.NODE_ENV === "development") {
+          if (error instanceof Error) {
+            if (error.name === "AbortError") {
+              console.warn("İstek zaman aşımına uğradı (10 saniye)");
+            } else if (
+              error.name === "TypeError" &&
+              error.message.includes("fetch")
+            ) {
+              console.warn("Network hatası - sunucuya ulaşılamıyor");
+            } else {
+              console.warn("Form gönderimi hatası:", error.message);
+            }
+          } else {
+            console.warn("Bilinmeyen hata:", error);
+          }
+        }
+
+        // Hata durumunda localStorage'a kaydet
+        const failedSubmission = {
+          ...formData,
+          timestamp: new Date().toISOString(),
+          retryCount: 0,
+        };
+        localStorage.setItem(
+          "failedFormSubmission",
+          JSON.stringify(failedSubmission)
+        );
       }
-    } catch (error) {
-      console.error("Form gönderimi hatası:", error);
-      setStatus("Bir hata oluştu. Lütfen tekrar deneyin.");
-    } finally {
-      setLoading(false);
-    }
+    };
+
+    sendToBackend();
   };
 
   return (
@@ -92,16 +243,29 @@ const ContactForm = () => {
         </Form.Group>
 
         <Form.Group className="mb-3 row" controlId="formPhone">
-          <Form.Label>
-            Telefon Numaranız{" "}
-            <em className="small fw-light">Başında sıfır olmadan</em>
-          </Form.Label>
+          <Form.Label>Telefon Numaranız</Form.Label>
           <Form.Control
-            type="tel"
+            type="number"
             name="phone"
             value={formData.phone}
-            onChange={handleChange}
+            onChange={(e) => {
+              let value = e.target.value;
+
+              //max 10 karakter girişi için
+              if (value.length > 10) {
+                value = value.slice(0, 10);
+              }
+
+              // başındaki sıfırı silmek için
+              if (value.startsWith("0")) {
+                value = value.substring(1);
+              }
+              setFormData({ ...formData, phone: value });
+            }}
             style={{ height: "35px" }}
+            maxLength={10}
+            inputMode="numeric"
+            placeholder="5xxxxxxxxx"
             required
           />
         </Form.Group>
@@ -216,6 +380,8 @@ const ContactForm = () => {
             type="checkbox"
             name="kvkkConsent"
             label="KVKK aydınlatma metnini okudum ve onaylıyorum"
+            checked={kvkkConsent}
+            onChange={handleCheckboxChange}
             required
             className="mt-2"
           />
@@ -226,7 +392,22 @@ const ContactForm = () => {
           </Button>
         </div>
       </Form>
-      {status && <p className="mt-3 text-center">{status}</p>}
+      {status && (
+        <Alert
+          variant="success"
+          className="mt-3 text-center"
+          style={{
+            borderRadius: "10px",
+            border: "none",
+            backgroundColor: "#d1edff",
+            color: "#0c5460",
+            fontWeight: "500",
+          }}
+        >
+          <i className="fas fa-check-circle me-2"></i>
+          {status}
+        </Alert>
+      )}
     </Card>
   );
 };
