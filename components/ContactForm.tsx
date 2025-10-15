@@ -122,7 +122,7 @@ const ContactForm = () => {
     // backende iletiyoruz burda
     const sendToBackend = async () => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const apiUrl = "https://aws-ses.onrender.com";
 
         // AbortController ile timeout ekliyorm
         const controller = new AbortController();
@@ -200,6 +200,34 @@ const ContactForm = () => {
 
     sendToBackend();
   };
+  // Arka planda belirli aralıklarla başarısız gönderimleri dene
+useEffect(() => {
+  const retryInterval = setInterval(async () => {
+    const failedSubmission = localStorage.getItem("failedFormSubmission");
+    if (failedSubmission) {
+      try {
+        const data = JSON.parse(failedSubmission);
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
+        const response = await fetch(`${apiUrl}/api/send`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          console.log("Uyuyan backend kalktı, form başarıyla gönderildi 🚀");
+          localStorage.removeItem("failedFormSubmission");
+        }
+      } catch (err) {
+        // sessizce devam etsin
+      }
+    }
+  }, 15000); // her 15 saniyede bir dene
+
+  return () => clearInterval(retryInterval);
+}, []);
+
 
   return (
     <Card className="p-4 shadow-sm">
