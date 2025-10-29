@@ -77,7 +77,7 @@ const ContactPage = () => {
                     <div>
                       <h6 className="fw-bold mb-1">Telefon</h6>
                       <p className="text-muted mb-0">+90 538 514 75 97</p>
-                      <p className="text-muted mb-0">+90 551 034 65 28</p>
+                      <p className="text-muted mb-0">+90 551 034 65 82</p>
                     </div>
                   </div>
 
